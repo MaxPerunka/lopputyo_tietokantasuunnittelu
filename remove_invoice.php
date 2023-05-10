@@ -2,6 +2,8 @@
 require "dbconnection.php";
 $dbcon = createDbConnection();
 
-$sql = "";
+$invoice_item_id = 60;
+
+$sql = "DELETE FROM invoice_items WHERE InvoiceLineId = $invoice_item_id";
 
 $dbcon->exec($sql);
