@@ -2,13 +2,13 @@
 require "dbconnection.php";
 $dbcon = createDbConnection();
 
-$playlistid = 4;
+$playlistId = 4;
 
 try{
     $dbcon->beginTransaction();
 
     $statement = $dbcon->prepare("DELETE playlist_track, playlists FROM playlist_track INNER JOIN playlists ON playlist_track.PlaylistId = playlists.PlaylistId WHERE playlist_track.PlaylistId = ?");
-    $statement->execute(array($playlistid));
+    $statement->execute(array($playlistId));
 
     $dbcon->commit();
 }catch(Exception $e){
